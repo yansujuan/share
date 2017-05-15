@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+
+</head>
+<body>
+	<div id="app" style="width: 500px;height:300px;"></div>
+
+	<script>
+		var myChart=echarts.init(document.getElementById('app'));//zhuyi
+
+		var option={
+			title:{
+				text:"某站点用户访问来源",
+				x:"center"
+			},
+			legend: {
+		        orient: 'vertical',
+		        x: 'left',
+		        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+		    },
+			tooltip:{
+				tiggler:"item",//触发类型，坐标轴/散点item/none
+				formatter: "{a} <br/>{b}: {c} ({d}%)"//模板变量有 {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
+			},
+			
+			series:[
+				{
+					name:"访问来源",
+					type:"pie",
+					radius:["50%","70%"],
+					avoidLabelOverlap: false,
+					data:[
+		                {value:335, name:'直接访问'},
+		                {value:310, name:'邮件营销'},
+		                {value:234, name:'联盟广告'},
+		                {value:135, name:'视频广告'},
+		                {value:1548, name:'搜索引擎'}
+		            ],
+		            label:{//饼图图形上的文本标签，可用于说明图形的一些数据信息
+						normal: {
+		                    show: false,
+		                    position: 'center'
+		                },
+						emphasis:{//高亮状态下视觉引导线样式
+							show:true,
+							textStyle:{
+								fontSize:"20",
+								fontWeight:"bold"
+							}
+						}
+					},
+					labelLine: {
+		                normal: {
+		                    show: false
+		                }
+		            },
+		            itemStyle:{//是图形在高亮状态下的样式
+						emphasis:{//图形的颜色。
+							shadowBlur:10,//图形阴影的模糊大小
+							shadowOffsetX:0,//阴影水平方向上的偏移距离。
+							shadowColor:"rgba(0,0,0,0.5)"//阴影颜色
+						}
+					}
+				}
+			]
+			
+
+		}
+		myChart.setOption(option)
+
+	</script>
+</body>
+</html>

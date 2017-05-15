@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片加载</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../swiper.css">
+    <style>
+        body{background: #ccc;}
+        .swiper-container,.swiper-wrapper{width: 700px;}
+        .swiper-slide{
+            width: 700px;
+            height: 400px;
+            line-height: 200px;
+            background: #000;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .swiper-slide img{width: 100%;height:100%}
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img1.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img2.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img3.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img4.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img5.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="../images/img6.jpg">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<script src="../swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container',{
+        pagination: '.swiper-pagination', //分页器
+        nextButton: '.swiper-button-next', //前进按钮
+        prevButton: '.swiper-button-prev', //后退按钮
+        paginationType: 'progress', //进度条*/
+        lazyLoading : true, //设为true开启图片延迟加载，需要将图片img标签的src改写成data-src，并且增加类名swiper-lazy。背景图的延迟加载则增加属性data-background
+        //lazyLoadingInPrevNext : true, //设为true允许将延迟加载应用到最接近的slide的图片（前一个和后一个slide）。
+        //lazyLoadingInPrevNextAmount : 2, //设置在延迟加载图片时提前多少个slide。
+        //lazyLoadingOnTransitionStart : true, //默认当过渡到slide后开始加载图片，如想在过渡一开始就加载，设置为true
+    });
+</script>
+</body>
+</html>

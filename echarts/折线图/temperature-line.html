@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+</head>
+<body>
+	<div id="app" style="width: 800px;height:500px"></div>
+	
+	<script>
+		var myChart=echarts.init(document.getElementById('app'));
+		var option={
+			title:{
+				text:"未来一周天气变化"
+			},
+			legend:{//图例组件，可开关
+				data:["最高气温","最低气温"]
+			},
+			toolbox:{//工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置
+				feature:{
+					saveAsImage:{},//保存为图片
+						restore:{},//配置还原项
+						dataView:{readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新
+						dataZoom:{//区域缩放
+							 yAxisIndex: 'none'
+						},
+						magicType: {type: ['line', 'bar']},//动态类型切换 
+				}
+			},
+			tooltip:{
+				trigger:"axis",
+			},
+			xAxis:{
+				type:"category",
+				boundaryGap: false,
+				data:["周一","周二","周三","周四","周五","周六","周日"]
+			},
+			yAxis:{
+				type:"value",
+				axisLabel:{//坐标轴刻度标签的相关设置
+					formatter:"{value}°C"//刻度标签的内容格式器，支持字符串模板和回调函数两种形式。
+				}
+			},
+			series:[
+			{
+				name:"最高气温",
+				type:"line",
+				data:[11, 11, 15, 13, 12, 13, 10],
+				markPoint:{//图表标注
+					data: [
+	                    {type: 'max', name: '最大值'},
+	                    {type: 'min', name: '最小值'}
+	                ]
+				},
+				markLine:{//图表标线
+					data:[{type: 'average', name: '平均值'}]
+				}
+
+			},
+			{
+				name:"最低气温",
+				type:"line",
+				data:[1, -2, 2, 5, 3, 2, 0],
+				markPoint:{//图表标注
+					data: [
+	                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}//图标标志的位置
+	                ]
+				},
+				markLine:{//图表标线
+					data:[
+						{type: 'average', name: '平均值'},//平均值line
+						[
+							{//起点
+								symbol:'circle',//标记的图形
+								x:"90%",//相对容器的屏幕 x 坐标，单位像素。
+								yAxis:'max',
+								label: {//该数据项标签的样式，起点和终点项的 label会合并到一起。
+		                            normal: {//将最大值放在起点
+		                                position: 'start',
+		                                formatter: '最大值'
+		                            }
+		                        },
+							},
+							{//终点
+								symbol: 'circle',
+		                        type: 'max',
+		                        name: '最高点'
+							}
+						]
+
+					]
+				}
+			},
+			]
+		}
+		myChart.setOption(option)
+
+	</script>
+</body>
+</html>

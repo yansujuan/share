@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        html{
+            font-size:100px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-size:.14rem;
+        }
+        .mark {
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.3);
+          position: absolute; }
+
+        .dolg {
+          position: absolute;
+          width: 30%;
+          height: 25%;
+          background: #fff;
+          border-radius:10px;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto; }
+          .dolg section {
+            height: 65px;
+            text-align:center;
+            margin: .3rem auto; }
+        .dolg .btns{
+          display:-webkit-flex;
+        }
+        .dolg span{
+            height:35px;
+            line-height: 35px;
+            -webkit-flex: 1;
+            text-align: center;
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>商品1<button>删除</button></li>
+        <li>商品2<button>删除</button></li>
+        <li>商品3<button>删除</button></li>
+    </ul>
+    <script src="../js/jquery1.7.js"></script>
+    <script src="../js/14.3.2.js"></script>
+    <script>
+    $("button").on("click",function(){
+      var li=$(this).parent();
+      $("body").dolg({
+        content:"确定删除吗？",
+        btns:["确定","取消"],
+        // 点击确定时执行的操作
+        callback:function(){
+          li.remove();
+        }
+      });
+    })
+    </script>
+</body>
+</html>

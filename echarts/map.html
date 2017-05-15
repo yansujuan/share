@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+	<script src="china.js"></script>
+</head>
+<body>
+	<div id="app" style="width: 800px;height:600px"></div>
+	<script>
+		var myChart=echarts.init(document.getElementById('app'));
+		function randomData() {
+		    return Math.round(Math.random()*1000);
+		}
+		var option={
+				title:{
+					text:"iphone 全国销量图",
+					left:"center"
+				},
+				tooltip:{//提示框组件
+					trigger:"item"//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+				},
+				legend:{
+					orient:"vertical",
+					left:"left",
+					data:["iphone4","iphone5","iphone6"]
+				},
+				visualMap:[// 是视觉映射组件，用于进行『视觉编码』，也就是将数据映射到视觉元素（视觉通道）
+					{
+						min:0,
+						max:2500,
+						left:"left",
+						top:"bottom",
+						text:["高","低"],
+						calculable:true//是否显示拖拽用的手柄（手柄能拖拽调整选中范围）。
+					}
+				],
+				toolbox:{
+					show:true,
+					left:"right",
+					top:"center",
+					orient:"vertical",
+					feature:{//各工具配置项
+						dataView:{readOnly:false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
+						restore:{},//配置项还原
+					}
+				},
+				series:[
+					{
+						name:"iphone4",
+						type:"map",
+						mapType:"china",
+						roam:false,//是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
+						label:{//图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等
+							normal:{
+								show:true
+							},
+							emphasis:{//是否在高亮状态下显示标签
+								show:true
+							}
+						},
+						data:[
+			                {name: '北京',value: randomData() },
+			                {name: '天津',value: randomData() },
+			                {name: '上海',value: randomData() },
+			                {name: '重庆',value: randomData() },
+			                {name: '河北',value: randomData() },
+			                {name: '河南',value: randomData() },
+			                {name: '云南',value: randomData() },
+			                {name: '辽宁',value: randomData() },
+			                {name: '黑龙江',value: randomData() },
+			                {name: '湖南',value: randomData() },
+			                {name: '安徽',value: randomData() },
+			                {name: '山东',value: randomData() },
+			                {name: '新疆',value: randomData() },
+			                {name: '江苏',value: randomData() },
+			                {name: '浙江',value: randomData() },
+			                {name: '江西',value: randomData() },
+			                {name: '湖北',value: randomData() },
+			                {name: '广西',value: randomData() },
+			                {name: '甘肃',value: randomData() },
+			                {name: '山西',value: randomData() },
+			                {name: '内蒙古',value: randomData() },
+			                {name: '陕西',value: randomData() },
+			                {name: '吉林',value: randomData() },
+			                {name: '福建',value: randomData() },
+			                {name: '贵州',value: randomData() },
+			                {name: '广东',value: randomData() },
+			                {name: '青海',value: randomData() },
+			                {name: '西藏',value: randomData() },
+			                {name: '四川',value: randomData() },
+			                {name: '宁夏',value: randomData() },
+			                {name: '海南',value: randomData() },
+			                {name: '台湾',value: randomData() },
+			                {name: '香港',value: randomData() },
+			                {name: '澳门',value: randomData() }
+			            ]
+					},
+					{
+			            name: 'iphone5',
+			            type: 'map',
+			            mapType: 'china',
+			            label: {
+			                normal: {
+			                    show: true
+			                },
+			                emphasis: {
+			                    show: true
+			                }
+			            },
+			            data:[
+			                {name: '北京',value: randomData() },
+			                {name: '天津',value: randomData() },
+			                {name: '上海',value: randomData() },
+			                {name: '重庆',value: randomData() },
+			                {name: '河北',value: randomData() },
+			                {name: '安徽',value: randomData() },
+			                {name: '新疆',value: randomData() },
+			                {name: '浙江',value: randomData() },
+			                {name: '江西',value: randomData() },
+			                {name: '山西',value: randomData() },
+			                {name: '内蒙古',value: randomData() },
+			                {name: '吉林',value: randomData() },
+			                {name: '福建',value: randomData() },
+			                {name: '广东',value: randomData() },
+			                {name: '西藏',value: randomData() },
+			                {name: '四川',value: randomData() },
+			                {name: '宁夏',value: randomData() },
+			                {name: '香港',value: randomData() },
+			                {name: '澳门',value: randomData() }
+			            ]
+			        },
+			        {
+			            name: 'iphone6',
+			            type: 'map',
+			            mapType: 'china',
+			            label: {
+			                normal: {
+			                    show: true
+			                },
+			                emphasis: {
+			                    show: true
+			                }
+			            },
+			            data:[
+			                {name: '北京',value: randomData() },
+			                {name: '天津',value: randomData() },
+			                {name: '上海',value: randomData() },
+			                {name: '广东',value: randomData() },
+			                {name: '台湾',value: randomData() },
+			                {name: '香港',value: randomData() },
+			                {name: '澳门',value: randomData() }
+			            ]
+			        }
+
+
+
+
+				]
+
+		}
+		myChart.setOption(option)
+	</script>
+</body>
+</html>

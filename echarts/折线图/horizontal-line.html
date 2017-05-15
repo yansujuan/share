@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+</head>
+<body>
+	<div id="app" style="width: 800px;height:500px"></div>
+	<script>
+	var myChart=echarts.init(document.getElementById('app'));
+		var option={
+				title:{//标题组件
+					text:"堆叠区域图",//主标题文本
+				},
+				tooltip:{//提示框组件
+					trigger:"axis",//触发类型，坐标轴/散点item/none
+					axisPointer:{//坐标轴指示器配置项
+						type:"cross"//line默认/shadow/cross十字准星
+					}
+				},
+				toolbox:{//工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具
+					feature:{//各工具配置项
+						saveAsImage:{},//保存为图片
+						restore:{},//配置还原项
+						dataView:{},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新
+						dataZoom:{},//区域缩放
+						magicType:{}
+					}
+				},
+				grid:{//直角坐标系内绘图网格
+					left:'3%',
+					right:"3%",
+					bottom:"2%",
+					containLabel: true//这常用于『防止标签溢出』的场景，标签溢出指的是，标签长度动态变化时，可能会溢出容器或者覆盖其他组件。
+				},
+				legend:{//图例组件，可开关
+					data:["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"]
+				},
+				xAxis:{
+					type:"category",//数值轴value,类目轴，时间轴time
+					data:["周一","周二","周三","周四","周五","周六","周日"]
+				},
+				yAxis:{
+					type:"value",//数值轴
+					
+				},
+				series:[//系列列表。每个系列通过 type 决定自己的图表类型
+					{
+						name:"直接访问",//系列名称，用于tooltip的显示
+						type:"line",//折线图
+						data: [320, 302, 301, 334, 390, 330, 320],
+						stack:"总量",//数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加
+						areaStyle:{//区域填充样式
+							normal:{
+								color:"blue",//填充的颜色
+								opacity:0.6,//透明度
+							}
+						},
+					},
+					{
+						name:"邮件营销",
+						type:"line",
+						stack:"总量",
+						areaStyle:{normal:{}},
+						data: [120, 132, 101, 134, 90, 230, 210]
+					},
+					{
+						name:"联盟广告",
+						type:"line",
+						stack:"总量",
+						areaStyle:{normal:{}},
+						data: [220, 182, 191, 234, 290, 330, 310]
+					},
+					{
+						name:"视频广告",
+						type:"line",
+						stack:"总量",
+						areaStyle:{normal:{}},
+						data: [150, 212, 201, 154, 190, 330, 410],
+					},
+					{
+						name:"搜索引擎",
+						type:"line",
+						stack:"总量",
+						areaStyle:{normal:{}},
+						data: [820, 832, 901, 934, 1290, 1330, 1320]
+					}
+				]
+		}
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

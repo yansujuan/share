@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container {
+            height: 300px;
+            display: table;/*让元素以表格形式渲染*/
+            background: lightblue;
+        }
+        #content {
+            background: pink;
+            display:table-cell;/*让元素以表格的单元素格形式渲染*/
+            vertical-align: middle;/*使用元素的垂直对齐*/
+        }
+
+
+        /*************************/
+
+        .table {
+            height: 300px;
+            width: 300px;
+            display: table;
+            position: relative;
+            float:left;
+            background: black;
+        }
+
+        .tableCell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px;
+            background: yellow;
+            *position: absolute;
+            *top: 50%;
+            *left: 50%;
+        }
+        .content {
+            *position:relative;
+            *top: -50%;
+            background: orange;
+            *left: -50%;
+        }
+
+    </style>
+</head>
+<body>
+<section>
+
+    <div id="container">
+        <div id="content">content</div>
+    </div>
+
+<!--**********************************************-->
+    <div class="table">
+        <div class="tableCell">
+            <div class="content">content</div>
+        </div>
+    </div>
+
+
+   <!-- <div>
+        方法三是使用的的div模拟表格效果，也就是说将多个<div>的“display”属性设置为禾“table”和“table-cell”，并设置他们的“vertical-align”的属性值为“middle”
+    </div>
+        <div>
+            <h1>优点：</h1>
+
+            这种方法不会像前面的两种方法一样，有高度的限制，此方法可以要据元素内容动态的改变高度，从而也就没有空间的限制，元素的内容不会因为没足够的空间而被切断或者出现难看的滚动条。
+
+            <h1>缺点：</h1>
+
+            不足之处呢？这种方法只适合现代浏览器，在IE6-7下无法正常运行；而且较前两者而言，结构也更复杂。
+
+            这种方法在现代浏览器下是非常方便。但是在IE6-7中是不被支持的，因为display:table在IE6-7中不被支持，那么为了解决这种方法在IE6-7的兼容，需要额外增加一个div，并使用hack，下面我们一起来看看其解决办法。
+        </div>-->
+
+</section>
+</body>
+</html>

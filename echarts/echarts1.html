@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+	<!-- 引入 echarts.js -->
+	<style>
+		#app{width: 600px;height:400px;}
+	</style>
+</head>
+<body>
+ <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="app"></div>
+
+	<script>
+		// 基于准备好的dom，初始化echarts实例
+		var myChart=echarts.init(document.getElementById('app'));
+		// 指定图表的配置项和数据
+		var option={
+			title:{
+				text:"Echarts 入门示例",
+				subtext: '纯属虚构'
+			},
+			legend:{
+				data:["数量","数量11","数量22","数量33"]
+			},
+			tooltip:{
+				trigger:"axis",
+				axisPointer:{
+					type:"cross"
+				}
+			},
+			 toolbox: {
+		        show: true,
+		        feature: {
+		            dataZoom: {
+		                yAxisIndex: 'none'
+		            },
+		            dataView: {readOnly: false},
+		            magicType: {type: ['line', 'bar']},
+		            restore: {},
+		            saveAsImage: {}
+		        }
+		    },
+			xAxis:{
+				data:["php","c++","java","javaScript",".net"]
+			},
+			yAxis:{
+
+			},
+			series:[
+				{
+					name:"数量",
+					type:"line",
+					barWidth:"40%",
+					stack:"销量",
+					 markPoint: {
+		                data: [
+		                    {type: 'max', name: '最大值'},
+		                    {type: 'min', name: '最小值'}
+		                ]
+            		},
+            		 markLine: {
+		                data: [
+		                    {type: 'average', name: '平均值'}
+		                ]
+		            },
+					data:[20,50,40,60,80]
+				},
+				{
+					name:"数量11",
+					type:"line",
+					barWidth:"40%",
+					stack:"销量",
+					data:[5,20,30,40,70]
+				},
+				{
+					name:"数量22",
+					type:"line",
+					barWidth:"40%",
+					stack:"销量",
+					data:[23,55,47,68,89]
+				},
+				{
+					name:"数量33",
+					type:"line",
+					barWidth:"40%",
+					stack:"销量",
+					data:[28,98,48,68,88]
+				}
+			]
+		 
+		}
+
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option)
+	</script>
+</body>
+</html>

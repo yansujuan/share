@@ -1,0 +1,72 @@
+
+https://demo.mobiscroll.com/v2/jquery/calendar/#demo=basic
+
+https://demo.mobiscroll.com/v2/jquery/datetime/#demo=date
+
+
+mobiscroll
+https://www.mobiscroll.com/
+
+
+官方demo网址：https://demo.mobiscroll.com/v3/jquery/calendar#demo=date
+
+
+https://www.oschina.net/news/78107/mobiscroll-3-0-0
+
+
+博客园例子
+http://www.cnblogs.com/Look_Sun/p/4482103.html'
+
+http://blog.csdn.net/sheri_stx/article/details/51602273
+
+
+
+
+ v2:
+
+  multipleSelect:true  // 是选择多个日期
+  selectedValues: []  //默认日期 以数组格式存放   如果只有一个默认日期 可以不是数组格式
+  
+   //选一个星期
+
+   day = now.getDay(), //获取星期天数 一个星期不是有七天吗 这获取的下标
+   diff = day - 6 < 0 ? 1 + day : day - 6, //判断 从下标0开始 那么就是从星期日开始 这个插件自己封装的就是从星期日开始 V3.0中改了，从星期一开始
+
+       
+        firstSelectDay: 6,  //它选中的是从6开始 也就是最后一个 星期6
+        selectedValues: currWeekDays
+   
+  //选择时间
+         controls: ['calendar', 'time'],
+        mode: 'mixed' // V2中是 可以传参 
+
+
+
+
+
+
+v3:
+
+
+  select:multiple   // 这也是选择多个日期  在v2中使用 会报错
+  defaultValue:[]  // 默认日期   在v2中使用 会报错
+
+
+
+ //选一个星期
+     
+        firstSelectDay: 1,  //它的选中的第一天是从1开始 
+        defaultValue: currWeekDays,
+        firstDay: 1  
+
+  //选择时间 
+
+        controls: ['calendar', 'time'],
+        showScrollArrows: true  // V3中 显示滚轮
+
+
+
+
+
+
+

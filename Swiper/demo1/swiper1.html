@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一般选项</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../swiper.css">
+    <style>
+        body{background: #000;overflow: hidden;}
+        .swiper-container{margin-top: 100px;}
+        .swiper-container,.swiper-wrapper{width:80%;height:500px}
+        .swiper-slide{width:80%;height:500px;margin: 0 auto;}
+        .swiper-slide img{width:100%;height:100%;}
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../images/img1.jpg"></div>
+        <div class="swiper-slide"><img src="../images/img2.jpg"></div>
+        <div class="swiper-slide"><img src="../images/img3.jpg"></div>
+        <div class="swiper-slide"><img src="../images/img4.jpg"></div>
+        <div class="swiper-slide"><img src="../images/img5.jpg"></div>
+        <div class="swiper-slide"><img src="../images/img6.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<script src="../swiper.js"></script>
+<script>
+   /* swiper原理：滑动就是用transform: translate(x,y)或者transform: translate3d(x,y,z)去控制元素的移动，
+     在松手的时候判定元素最后的位置，元素的样式应用transform: translate3d(endx , endy, 0)
+     和transition-duration: time来达到一个动画恢复的效果。标准浏览器提供transitionend事件监听动画结束，
+     在结束时将动画时间归零。*/
+
+    var swiper = new Swiper('.swiper-container',{
+        loop: true, //环路(循环)与free模式同用时会产生抖动，因为free模式下没有复制slide的时间点。
+        initialSlide :5, //设定初始化时slide的索引。
+        //direction : 'vertical', //Slides的滑动方向，参数：水平(horizontal)或垂直(vertical) 默认水平。
+        autoplay: 1000, //自动轮播的时间间隔
+        speed:300,//滑动速度，即slider自动滑动开始到结束的时间（单位ms），也是触摸滑动时释放至贴合的时间。
+        autoplayDisableOnInteraction: false, //鼠标左右滑动后是否继续自动轮播，默认为true：停止。false：继续。
+        //autoplayStopOnLast : true, //当轮播到最后一个slider时是否停止自动轮播。默认为false , 设置为true表示停止。（loop模式下无效）。
+        //grabCursor : true, //设置为true时，鼠标指针会变成手掌形状，拖动时鼠标指针会变成抓手形状。（根据浏览器形状有所不同）
+        pagination: '.swiper-pagination', //分页器
+        paginationClickable: true, //分页器控制Swiper切换
+        nextButton: '.swiper-button-next', //前进按钮
+        prevButton: '.swiper-button-prev', //后退按钮
+        //paginationType: 'progress' //进度条
+    });
+</script>
+</body>
+</html>

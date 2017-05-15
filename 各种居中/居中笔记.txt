@@ -1,0 +1,243 @@
+1.margin:auto实现绝对定位元素的水平垂直居中
+
+eg:
+.element {
+    width: 600px; height: 400px;
+    position: absolute; left: 50%; top: 50%;
+    margin-top: -200px;    /* 高度的一半 */
+    margin-left: -300px;    /* 宽度的一半 */
+}
+对比
+.element {
+    width: 600px; height: 400px;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);    /* 50%为自身尺寸的一半 */
+}
+
+js代码
+$(function(){
+  var width = $(".element ").width();
+  var height = $(".element ").height();
+
+  $(".element ").attr("margin-top",(-height/2)+"px");
+  $(".element ").attr("margin-left",(-width/2)+"px");
+});
+
+//***您需要延迟执行上面的代码，因为获取到的图片长宽需要等待图片下载完成后再来计算//
+$(function(){
+  $("#son").on("load",function(){
+
+    /*这里的图片获取长宽不再是这个样子的，需要修改*/
+    ...
+
+    $("#son").attr("margin-top",(-height/2)+"px");
+    $("#son").attr("margin-left",(-width/2)+"px");
+
+    })
+});
+O(∩_∩)O~无论绝对定位元素的尺寸是多少，其都是水平垂直居中显示的
+
+╭(╯^╰)╮兼容性： IE9(-ms-), IE10+以及其他现代浏览器才支持
+
+
+* margin:auto
+eg:
+.element {
+    width: 600px; height: 400px;
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    margin: auto;    /* 有了这个就自动居中了 */
+}
+
+
+
+
+2.display:table-cell
+
+<1> display:table-cell与大小不固定元素的垂直居中
+eg:
+/*这里的大小是根据高宽上限128像素图片设置的*/
+div{
+   display:table-cell;
+   width:1em; height:1em; 
+   border:1px solid #beceeb;
+   font-size:144px; 
+   text-align:center;    vertical-align:middle;
+} 
+div img{vertical-align:middle;}
+
+<2> display:table-cell与两栏自适应布局
+对于不认识display:table-cell属性的IE6/7 .很简单，使用display:inline-block属性代替display:table-cell就完全ok的啦！
+ 
+
+/*--------------------------------------------------------------------------------*/
+3.
+
+
+水平居中设置  
+ <1、行内元素
+     设置  text-align:center     
+ <2、定宽块状元素      
+     设置  左右  margin  值为  auto  
+ <3、不定宽块状元素          
+     a:在元素外加入  table  标签（完整的，包括 table、tbody、tr、td）该元素写在td内，然后设置margin  的值为  auto      b:给该元素设置  displa:inine  方法           
+     c:父元素设置  position:relative  和  left:50%，子元素设置  position:relative  和  left:50%
+垂直居中设置      
+ <1、父元素高度确定的单行文本            
+       设置  height = line-height     
+ <2、父元素高度确定的多行文本        
+    a:插入  table （插入方法和水平居中一样），然后设置  vertical-align:middle       
+    b:先设置  display:table-cell  再设置  vertical-align:middle
+
+
+/*-------------------------------------------*/
+不知道自己高度和父容器高度的情况下, 利用绝对定位只需要以下三行：
+parentElement{
+
+      position:relative;
+ 
+   }
+
+ 
+childElement{
+    
+       position: absolute;
+ 
+       top: 50%;
+ 
+       transform: translateY(-50%);
+
+
+ }
+若父容器下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可
+
+
+parentElement{
+
+       height:100px
+ 
+   }
+
+ 
+childElement{
+    
+       position: relative;
+       top: 50%;
+ 
+       transform: translateY(-50%);
+
+
+ }
+4.
+  使用position:absolute,设置left、top、margin-left、margin-top的属性
+   .one{  
+        position:absolute;   
+        width:200px;        
+        height:200px;        
+        top:50%;
+        left:50%;  
+        margin-top:-100px;             **top:0;right:0;bottom:0;left:0;margin:auto;
+        margin-left:-100px;    
+        background:red;
+ }
+这种方法基本浏览器都能够兼容，不足之处就是需要固定宽高。
+
+5.position:fixed,IE是不支持这个属性的  margin：auto必须
+.three{   
+        position:fixed;  
+        width:160px;   
+        height:160px; 
+        right:0;      
+        bottom:0;   
+        left:0;     
+        margin:auto;    
+        background:pink;
+}
+
+
+
+6.最简单的一种使行内元素居中的方法，使用line-height,text-align:center;属性
+
+
+7.使用css3的display:-webkit-box属性，
+   .seven{         
+        width:90px;        
+        height:90px;   
+        display:-webkit-box;          
+        -webkit-box-pack:center;     
+        -webkit-box-align:center;    
+         background:yellow;  
+}
+
+
+8.使用css3的新属性transform:translate(x,y)属性
+   .eight{           
+        position:absolute;      
+        width:80px;      
+        height:80px;     
+        top:50%;        
+        left:50%;      
+        transform:translate(-50%,-50%);         
+        background:green;
+}
+
+
+
+这个方法可以不需要设定固定的宽高，在移动端用的会比较多，在移动端css3兼容的比较好
+
+9.最高大上的一种，使用:before元素
+    .nine{       
+         position:fixed;    
+         display:block;    
+         top:0;    
+         right:0;  
+         bottom:0;   
+         left:0;   
+         text-align:center;   
+         background:rgba(0,0,0,.5);
+}
+.nine:before{          
+         content:'';       
+         display:inline-block;    
+         vertical-align:middle;     
+         height:100%;}
+.nine .content{     
+         display:inline-block;  
+         vertical-align:middle;  
+         width:60px;     
+         height:60px;      
+         line-height:60px;     
+         color:red;          
+         background:yellow;
+}
+
+10.新弹性盒
+
+/*---------------------------------其他-------------------------------------------------*/
+
+
+大小不固定的图片、多行文字的水平垂直居中
+一、大小不固定，多行文字的垂直居中
+《1》单行文字 line-height
+《2》多行文字 
+              实现的关键是把文字当图片处理
+
+     外部div   display：table-cell
+               vertical-align：middle
+     内部span  display：inline-block
+               vertical-align：middle  可省略
+
+二、大小不固定，图片的水平垂直居中
+① 透明gif图片+背景定位的方法
+background-position:center  对于维护控制成本都很不错
+② display:table-cell和文字大小控制居中 
+③ display:inline-block和文字大小控制居中
+将a标签默认的inline属性设置为inline-block属性，这样a标签既支持宽度，又支持vertical-align:middle，配合img的vertical-align:middle就可以实现图片的水平垂直居中显示了
+IE下要先变成inline属性，再转变成类似于inline-block的属性
+④ 透明图片拉伸对齐实现垂直居中显示
+
+
+
+
+
+
+

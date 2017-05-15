@@ -1,0 +1,18 @@
+各种水平垂直居中:
+
+http://www.w3cplus.com/collective-5.html
+http://segmentfault.com/q/1010000002650169  *
+http://www.zhihu.com/question/20543196  *
+
+http://www.zhangxinxu.com/wordpress/2009/08/%E5%A4%A7%E5%B0%8F%E4%B8%8D%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%9B%BE%E7%89%87%E3%80%81%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/   *
+
+http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/  *
+
+https://github.com/simaQ/cssfun/issues/3  *
+http://www.cnblogs.com/Dudy/p/4085292.html 
+
+ 
+http://www.zhangxinxu.com/wordpress/?s=%E5%B1%85%E4%B8%AD  *
+http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/ *
+
+http://www.cnblogs.com/dearxinli/p/3799094.html 

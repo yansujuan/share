@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swipers嵌套</title>
+    <link rel="stylesheet" href="../swiper.css">
+    <style>
+        body { background: #eee;}
+        .swiper-container { width: 100%; height: 100%;}
+        .swiper-slide {
+            height: 300px;text-align: center; font-size: 18px;
+            background: #fff;line-height: 300px;
+        }
+        .swiper-container-v { background: #eee; }
+    </style>
+</head>
+<body>
+<div class="swiper-container swiper-container-h">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Horizontal Slide 1</div>
+        <div class="swiper-slide">
+            <div class="swiper-container swiper-container-v">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Vertical Slide 1</div>
+                    <div class="swiper-slide">Vertical Slide 2</div>
+                    <div class="swiper-slide">Vertical Slide 3</div>
+                    <div class="swiper-slide">Vertical Slide 4</div>
+                    <div class="swiper-slide">Vertical Slide 5</div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-v"></div>
+            </div>
+        </div>
+        <div class="swiper-slide">Horizontal Slide 3</div>
+        <div class="swiper-slide">Horizontal Slide 4</div>
+    </div>
+
+    <div class="swiper-pagination swiper-pagination-h"></div>
+</div>
+
+<script src="../swiper.js"></script>
+
+<script>
+    var swiperH = new Swiper('.swiper-container-h', {
+        pagination: '.swiper-pagination-h',
+        paginationClickable: true,
+        spaceBetween: 50
+    });
+    var swiperV = new Swiper('.swiper-container-v', {
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        direction: 'vertical',
+        spaceBetween: 50,
+        mousewheelControl : true //开启鼠标控制Swiper切换
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片调焦</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../swiper.css">
+    <style>
+        body{background: #ccc;}
+        .swiper-container,.swiper-wrapper{width: 700px;}
+        .swiper-slide{
+            width: 700px;height: 400px;line-height: 200px;background: #000;
+            text-align: center;font-size: 30px;font-weight: bold;
+        }
+        .swiper-slide img{width: 100%;height:100%}
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper ">
+        <div class="swiper-slide swiper-zoom-container">
+            <img src="../images/img1.jpg">
+        </div>
+        <div class="swiper-slide swiper-zoom-container" data-swiper-zoom="10">
+            <img src="../images/img3.jpg">
+        </div>
+        <div class="swiper-slide swiper-zoom-container">
+            <img src="../images/img4.jpg">
+        </div>
+        <div class="swiper-slide swiper-zoom-container">
+            <img src="../images/img6.jpg">
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<script src="../swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container',{
+        pagination: '.swiper-pagination', //分页器
+        zoom : true, //焦距功能：双击slide会放大，并在手机端可双指触摸缩放。需要在slide中增加类名swiper-zoom-container
+        zoomMax :5, //最大缩放焦距（放大倍率）。默认：3  在slide中添加data-swiper-zoom属性可单独设置放大倍率
+        zoomMin :2, //最小缩放焦距（缩小倍率）。默认：1
+        zoomToggle :true //是否允许双击缩放。默认：true,设置为false:不允许双击缩放，只允许手机端触摸缩放。
+    });
+</script>
+</body>
+</html>

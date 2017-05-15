@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+       html,body {height: 100%;}
+        #floater{
+            float:left;
+            height:50%;/*相对于父元素高度的50%*/
+            margin-bottom: -120px;/*值大小为居中元素高度的一半（240px/2）*/
+        }
+        #content {
+            clear:both;/*清除浮动*/
+            height: 240px;
+            position: relative;
+            background: darkred;
+        }
+
+    </style>
+</head>
+<body>
+ <div id="floater"><!--This block have empty content --></div>
+    <div id="content">Content section</div>
+
+
+</body>
+</html>

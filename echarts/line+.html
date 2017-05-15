@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="echarts.min.js"></script>
+</head>
+<body>
+<div id="app" style="width: 600px;height:400px">
+	
+</div>
+	<script>
+		var myChart=echarts.init(document.getElementById('app'));
+		var colors=['#5793f3', '#d14a61', '#675bba'];
+		var option={
+			color:colors,
+			grid: {//直角坐标系内绘图网格
+		        right: '20%'
+		    },
+			xAxis:{
+				type:"category",
+				axisTick:{//坐标轴刻度相关设置
+				//类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐
+					alignWithLabel: true
+
+				},
+				data:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
+			},
+			yAxis:[
+				{
+					type:"value",
+					positon:"right",
+					name:"蒸发量",
+					min:0,
+					max:250,
+					axisLine:{//坐标轴轴线相关设置
+						lineStyle:{
+							color:colors[0]
+						}
+					},
+					axisLabel:{//坐标轴刻度标签的相关设置
+						formatter: '{value} ml'//刻度标签的内容格式器，支持字符串模板和回调函数两种形式
+					}
+				},
+				{
+					type:"value",
+					positon:"right",
+					offset: 80,
+					name:"降水量",
+					min:0,
+					max:250,
+					axisLine:{//坐标轴轴线相关设置
+						lineStyle:{
+							color:colors[1]
+						}
+					},
+					axisLabel:{//坐标轴刻度标签的相关设置
+						formatter: '{value} ml'//刻度标签的内容格式器，支持字符串模板和回调函数两种形式
+					}
+
+				},
+				{
+					type:"value",
+					positon:"left",
+					name:"温度",
+					min:0,
+					max:25,
+					axisLine:{//坐标轴轴线相关设置
+						lineStyle:{
+							color:colors[2]
+						}
+					},
+					axisLabel:{//坐标轴刻度标签的相关设置
+						formatter: '{value} °C'//刻度标签的内容格式器，支持字符串模板和回调函数两种形式
+					}
+				}
+			],
+			series:[
+				{
+					name:"蒸发量",
+					type:"bar",
+					data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+				},
+				{
+					name:"降水量",
+					type:"bar",
+					yAxisIndex: 1,
+					data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+				},
+				{
+					name:"温度",
+					type:"line",
+					yAxisIndex: 2,//使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用
+					data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+				},
+
+			]
+
+			
+		}
+		myChart.setOption(option)
+	</script>
+</body>
+</html>

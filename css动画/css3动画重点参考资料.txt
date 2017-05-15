@@ -1,0 +1,10 @@
+
+贝塞尔曲线
+http://www.zhangxinxu.com/wordpress/2013/08/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF-cubic-bezier-css3%E5%8A%A8%E7%94%BB-svg-canvas/
+http://cubic-bezier.com/#.17,.67,.83,.67
+
+perspective 透视
+http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/
+
+腾讯动画手册和动画生成工具
+http://isux.tencent.com/css3/index.html

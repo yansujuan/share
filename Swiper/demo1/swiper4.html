@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>free模式</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../swiper.css">
+    <style>
+        body{background: #ccc;}
+        .swiper-slide{
+            height: 300px;line-height: 300px;
+            background: #fff;text-align: center;
+            font-size: 36px;font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <script src="../swiper.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container',{
+            //autoplay: 1000,
+            pagination: '.swiper-pagination', //分页器
+            nextButton: '.swiper-button-next', //前进按钮
+            prevButton: '.swiper-button-prev', //后退按钮
+            paginationType: 'progress', //进度条
+            freeMode : true, //默认为false，普通模式：slide滑动时只滑动一格，并自动贴合wrapper，设置为true则变为free(自由)模式，slide会根据惯性滑动且不会贴合。
+            //freeModeMomentum : false, //free模式动量。free模式下，若设置为false则关闭动量，释放slide之后立即停止不会滑动。
+            //freeModeMomentumRatio : 3, //free模式动量值（移动惯量）。设置的值越大，当释放slide时的滑动距离越大。
+            //freeModeMomentumVelocityRatio : 5, //free模式惯性速度，设置越大，释放后滑得越快。
+            //freeModeMomentumBounce : false, //动量反弹。false时禁用free模式下的动量反弹，slides通过惯性滑动到边缘时，无法反弹。注意与resistance（手动抵抗）区分。
+            //freeModeMomentumBounceRatio : 5, //值越大产生的边界反弹效果越明显，反弹距离越大。
+            //freeModeSticky : true //使得freeMode也能自动贴合。
+        });
+    </script>
+</body>
+</html>

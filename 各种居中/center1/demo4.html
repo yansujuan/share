@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .element {
+            background: red;
+            width: 600px; 
+            height: 400px;
+            position: absolute; 
+            left: 50%; 
+            top: 50%;
+    
+         }</style>
+
+</head>
+<body>
+<section>
+    <div class="element">
+        content(ˉ▽￣～)
+    </div>
+</section>
+
+<script src="jquery.js"></script>
+<script>
+$(function(){
+
+   $("#son").on("load",function(){
+  var width = $(".element ").width();
+  var height = $(".element ").height();
+/* $(".element ").attr("marginTop",(-height/2)+"px");
+  $(".element ").attr("marginLeft",(-width/2)+"px");*/
+  $(".element ").css("margin-top",(-height/2)+"px");
+  $(".element ").css("margin-left",(-width/2)+"px");
+  //console.log($(".element ").css("margin-top",(-height/2)+"px"))
+}
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
